@@ -15,6 +15,8 @@ const Calendar = () => {
   });
   const [selectedDate, setSelectedDate] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
+  
+  const [showForm, setShowForm] = useState(false);
 
   const [showIntro, setShowIntro] = useState(true);
 
@@ -49,6 +51,10 @@ const Calendar = () => {
     return setCurrentDate(currentDate.add(1, "month"));
   };
 
+  const handleNewEventButton = ()=>{
+      setShowForm(true);
+  };
+
   const handleAddEvent = (newEvent) => {
     const [hours, minutes] = newEvent.startTime.split(":").map(Number);
     const start = dayjs().hour(hours).minute(minutes);
@@ -72,11 +78,23 @@ const Calendar = () => {
         onNext={handleNext}
         showIntro={showIntro}
         setShowIntro={setShowIntro}
+        showForm={showForm}
+        setShowForm={setShowForm}
+        handleNewEventButton={handleNewEventButton}
       />
 
-      
+        {showForm && (
+          <div className={styles.popupOverlay} onClick={()=>setShowForm(false)}>
+            <div className={styles.popup}>
+            <button className={styles.formCloseButton} onClick={() => setShowForm(false)}>×</button>
+              <AddEventForm onAdd={(event) => {
+                handleAddEvent(event);
+                setShowForm(false); // Close popup after adding
+              }} />
+            </div>
+          </div>
+        )}
 
-      <AddEventForm onAdd={handleAddEvent} />
 
       <div className={styles.weekHeader}>
         {weekdays.map((day, idx) => (
@@ -85,7 +103,9 @@ const Calendar = () => {
           </div>
         ))}
       </div>
+
       {showPopup && selectedDate && <PopUP eventList={eventList} setShowPopup={setShowPopup} selectedDate={selectedDate}/>}
+
       <div className={styles.grid}>
         {daysArray.map((day, index) => (
           <DayCell

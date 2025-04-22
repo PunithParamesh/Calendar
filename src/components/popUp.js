@@ -20,7 +20,7 @@ const PopUP =({setShowPopup, selectedDate, eventList})=>{
             </li>
           ))}
             </ul>
-            <button onClick={() => setShowPopup(false)}>Close</button>
+            <button onClick={() => setShowPopup(false)} className={styles.popCloseBtn}>Close</button>
             </div>
         </div>
     )

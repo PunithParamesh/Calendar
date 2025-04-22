@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/calendar.module.css";
 
-const CalendarHeader = ({ currentDate, onPrev, onNext,showIntro, setShowIntro}) => {
+const CalendarHeader = ({ currentDate, onPrev, onNext,showIntro, setShowIntro, handleNewEventButton}) => {
   return (
     <>
     <div className={styles.header}>
@@ -9,6 +9,9 @@ const CalendarHeader = ({ currentDate, onPrev, onNext,showIntro, setShowIntro}) 
         <h2>{currentDate.format("MMM YYYY")}</h2>
         <button className={styles.navButton} onClick={onNext}>→</button>
 
+    </div>
+    <div >
+      <button className={styles.addEventButton} onClick={()=>handleNewEventButton()}>Add Event</button>
     </div>
     
     {showIntro && (

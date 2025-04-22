@@ -159,6 +159,7 @@
   }
   
   .popup {
+    position: relative;
     background: white;
     padding: 1.5rem;
     border-radius: 8px;
@@ -167,13 +168,40 @@
     overflow-y: auto;
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   }
-  .popup button{
+  .popCloseBtn{
     background-color:#ff5900 ;
     border: none;
     padding: 0.25rem;
     border-radius: 5px;
     cursor: pointer;
   }
+  .addEventButton {
+    margin: 10px auto;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ff5900;
+    color: white;
+    border: none;
+    border-radius: 6px;
+  }
+  .addEventButton:hover{
+    background-color: #fe8b4d;
+  }
+  .formCloseButton{
+    font-size: 1.7rem;
+    position: absolute;
+    right: 10px;
+    top:7px;
+    border: none;
+    background-color: #ffffff;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .formCloseButton:hover{
+    transform: scale(1.8);
+  }
+  
   /* .popup h3 {
     margin-top: 0;
   } */
