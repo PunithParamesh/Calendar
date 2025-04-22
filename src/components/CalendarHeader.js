@@ -4,16 +4,6 @@ import styles from "../styles/calendar.module.css";
 const CalendarHeader = ({ currentDate, onPrev, onNext,showIntro, setShowIntro, handleNewEventButton}) => {
   return (
     <>
-    <div className={styles.header}>
-        <button className={styles.navButton} onClick={onPrev}>←</button>
-        <h2>{currentDate.format("MMM YYYY")}</h2>
-        <button className={styles.navButton} onClick={onNext}>→</button>
-
-    </div>
-    <div >
-      <button className={styles.addEventButton} onClick={()=>handleNewEventButton()}>Add Event</button>
-    </div>
-    
     {showIntro && (
             <div className={styles.description}>
             <button
@@ -35,6 +25,17 @@ const CalendarHeader = ({ currentDate, onPrev, onNext,showIntro, setShowIntro, h
             <p><u>Start organizing your time better, one event at a time. 🕒</u></p>
         </div>
         )}
+    <div className={styles.header}>
+        <button className={styles.navButton} onClick={onPrev}>←</button>
+        <h2>{currentDate.format("MMM YYYY")}</h2>
+        <button className={styles.navButton} onClick={onNext}>→</button>
+
+    </div>
+    <div >
+      <button className={styles.addEventButton} onClick={()=>handleNewEventButton()}>Add Event</button>
+    </div>
+    
+    
     </>
     
 

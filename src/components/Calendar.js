@@ -85,7 +85,7 @@ const Calendar = () => {
 
         {showForm && (
           <div className={styles.popupOverlay} onClick={()=>setShowForm(false)}>
-            <div className={styles.popup}>
+            <div className={styles.popup} onClick={(e)=>e.stopPropagation()}>
             <button className={styles.formCloseButton} onClick={() => setShowForm(false)}>×</button>
               <AddEventForm onAdd={(event) => {
                 handleAddEvent(event);

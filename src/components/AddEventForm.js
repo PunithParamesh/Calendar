@@ -37,18 +37,21 @@ const AddEventForm = ({ onAdd }) => {
         placeholder="Event Title"
         value={formData.title}
         onChange={handleChange}
+        required
       />
       <input
         type="date"
         name="date"
         value={formData.date}
         onChange={handleChange}
+        required
       />
       <input
         type="time"
         name="time"
         value={formData.time}
         onChange={handleChange}
+        required
       />
       <input
         type="number"
@@ -56,6 +59,7 @@ const AddEventForm = ({ onAdd }) => {
         placeholder="Duration (minutes)"
         value={formData.duration}
         onChange={handleChange}
+        required
       />
       <button type="submit" className={styles.button}>Add Event</button>
     </form>
